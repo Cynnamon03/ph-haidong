@@ -1,0 +1,83 @@
+<div class="bg-white">
+
+  <section class="relative bg-gray-900 text-white min-h-[75vh] flex items-center justify-center overflow-hidden">
+    <div class="absolute inset-0 z-0">
+      <img src="/images/About Us.jpg" 
+           alt="Haidong Gumdo Group Showcase" 
+           class="w-full h-full object-cover scale-105 animate-subtle-zoom">
+      <div class="absolute inset-0 bg-gradient-to-b from-black/60 via-black/40 to-black/70 backdrop-blur-[1px]"></div>
+    </div>
+
+    <div class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-24 text-center">
+      <div class="w-12 h-1 bg-amber-500 mx-auto mb-6"></div>
+      
+      <h1 class="text-6xl md:text-8xl font-black uppercase tracking-tighter mb-8 drop-shadow-2xl">
+        About <span class="text-amber-500">Us</span>
+      </h1>
+      
+      <p class="text-xl md:text-3xl max-w-4xl mx-auto leading-relaxed font-light text-gray-200 drop-shadow-lg">
+        Haidong Gumdo Philippines is dedicated to promoting the ancient Korean martial art of swordsmanship. 
+        With a rich history and philosophy rooted in discipline and respect.
+      </p>
+
+      <div class="absolute bottom-10 left-1/2 -translate-x-1/2 animate-bounce opacity-50">
+        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3"></path></svg>
+      </div>
+    </div>
+  </section>
+
+  <section class="py-28 bg-white text-center relative overflow-hidden">
+
+    <div class="max-w-4xl mx-auto px-4 relative z-10">
+        <h2 class="text-sm font-bold text-amber-500 tracking-[0.4em] uppercase mb-4">The Way of the Sword</h2>
+        <h3 class="text-5xl font-black uppercase mb-12 text-gray-900">Introduction</h3>
+        
+        <p class="text-gray-600 text-xl leading-relaxed italic font-serif mb-8 px-6 border-l-4 border-amber-500">
+            "Haidong Gumdo is a journey of self-discovery, personal growth, and mastery of the sword."
+        </p>
+
+        <p class="text-gray-600 text-lg leading-relaxed text-justify md:text-center">
+            Haidong Gumdo, often referred to as the "Way of the Korean Sword," is a modern martial art deeply rooted in the rich heritage of Korean swordsmanship. With its origins dating back centuries, Haidong Gumdo has evolved into a comprehensive system of sword techniques, philosophy, and discipline. Founded in the 1980s by Grandmaster Jeong-Ho Kim, Haidong Gumdo seeks to preserve and promote the traditional art of the sword while adapting it to contemporary times.
+        <br><br>
+            Embracing a holistic approach to martial arts training, Haidong Gumdo emphasizes not only physical skill but also mental focus, spiritual development, and ethical principles. Through the study of forms, cutting techniques, sparring, and meditation, practitioners of Haidong Gumdo embark on a journey of self-discovery, personal growth, and mastery of the sword. Whether practiced for self-defense, physical fitness, or cultural enrichment, Haidong Gumdo offers a transformative experience that transcends mere combat techniques, instilling values of respect, integrity, and harmony with oneself and others.
+        </p>
+    </div>
+  </section>
+
+  <section class="py-32 bg-gray-50">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-40">
+      
+      @for (person of leaders; track person.name; let i = $index) {
+        <div class="flex flex-col md:items-center gap-20" 
+             [class.md:flex-row]="i % 2 === 0" 
+             [class.md:flex-row-reverse]="i % 2 !== 0">
+          
+          <div class="w-full md:w-1/2 relative group">
+            <div class="absolute -inset-4 border border-amber-500/20 rounded-lg translate-x-2 translate-y-2 group-hover:translate-x-0 group-hover:translate-y-0 transition-transform duration-500"></div>
+            <div class="relative overflow-hidden rounded-lg shadow-2xl">
+              <img [src]="person.image" [alt]="person.name" 
+                   class="w-full h-[550px] object-cover grayscale group-hover:grayscale-0 group-hover:scale-105 transition-all duration-1000 ease-out">
+            </div>
+          </div>
+
+          <div class="w-full md:w-1/2">
+            
+            <h4 class="text-gray-400 text-3xl font-light mb-2">
+              President <span class="font-black text-gray-900 block text-6xl mt-2">{{ person.name }}</span>
+            </h4>
+            
+            <p class="text-xl font-bold text-amber-600 mb-8 tracking-tight">{{ person.title }}</p>
+            
+            <div class="w-20 h-1 bg-gray-900 mb-8"></div>
+            
+            <p class="text-gray-600 text-lg leading-relaxed first-letter:text-4xl first-letter:font-bold first-letter:text-gray-900">
+              {{ person.bio }}
+            </p>
+          </div>
+
+        </div>
+      }
+
+    </div>
+  </section>
+</div>

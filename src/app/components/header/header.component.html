@@ -1,0 +1,50 @@
+<header class="bg-white shadow-md sticky top-0 z-50">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="flex justify-between items-center h-28">
+      
+      <div class="flex-shrink-0 flex items-center cursor-pointer">
+        <img src="/images/PhHaidong Logo.png" alt="Haidong Gumdo Logo" class="h-20 w-20 mr-4 object-contain">
+        <span class="font-black text-3xl uppercase tracking-wider text-gray-900">
+          Haidong Gumdo 
+          <span class="text-gray-500 font-medium text-base block -mt-1">Philippines</span>
+        </span>
+      </div>
+
+      <nav class="hidden md:flex space-x-8 items-center text-base font-bold text-gray-600 uppercase tracking-wide">
+        <a href="#" class="hover:text-black transition-colors">Home</a>
+        
+        <div class="relative group">
+        <button routerLink="/about" class="text-gray-700 hover:text-amber-500 font-bold uppercase tracking-wide flex items-center">
+          About
+          <svg class="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M19 9l-7 7-7-7"></path></svg>
+        </button>
+
+        <div class="absolute hidden group-hover:block bg-white shadow-xl rounded-lg py-2 w-64 z-50">
+          <a routerLink="/about" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-50 hover:text-amber-500 uppercase font-medium">
+            About Us & Introduction
+          </a>
+          <a routerLink="/organization" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-50 hover:text-amber-500 uppercase font-medium">
+            Organization
+          </a>
+          <a routerLink="/profile-pisa" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-50 hover:text-amber-500 uppercase font-medium">
+            Profile – Francis Pisa
+          </a>
+        </div>
+      </div>
+
+        <a href="#" class="hover:text-black transition-colors">News</a>
+        <a href="#" class="hover:text-black transition-colors">Events</a>
+        <a href="#" class="hover:text-black transition-colors">Membership</a>
+        <a href="#" class="hover:text-black transition-colors">Gallery</a>
+      </nav>
+
+      <div class="md:hidden flex items-center">
+        <button class="text-gray-700 hover:text-black focus:outline-none">
+          <svg class="h-10 w-10" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
+          </svg>
+        </button>
+      </div>
+    </div>
+  </div>
+</header>
