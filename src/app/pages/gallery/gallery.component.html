@@ -1,0 +1,51 @@
+<div class="bg-white min-h-screen pb-32">
+  <section class="max-w-7xl mx-auto px-6 lg:px-12 py-24">
+    <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+      <div class="space-y-8">
+        <h1 class="text-6xl font-black text-gray-900 leading-tight tracking-tighter pr-8">
+          Haidong Memories We’ve Made!
+        </h1>
+        <p class="text-xl text-gray-600 leading-relaxed font-medium">
+          Explore our gallery of captivating images capturing the essence of Haidong Gumdo. From dynamic sword forms to serene meditation sessions, witness the beauty and power of this ancient martial art in action.
+        </p>
+        <div class="w-20 h-1.5 bg-amber-500"></div>
+      </div>
+      
+      <div class="rounded-2xl overflow-hidden shadow-2xl border-b-8 border-amber-500">
+        <img src="/images/Gallery/image_2.jpg" 
+             alt="Haidong Gumdo Action"
+             class="w-full h-auto grayscale hover:grayscale-0 transition-all duration-1000">
+      </div>
+    </div>
+  </section>
+
+  <section class="max-w-7xl mx-auto px-6 lg:px-12 py-16 border-t border-gray-100">
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+      
+      @for (item of galleryItems; track item.src) {
+        <div (click)="openModal(item)" class="relative group rounded-xl overflow-hidden shadow-md hover:shadow-2xl transition-all duration-500 cursor-pointer aspect-[4/3] border-b-4 border-transparent hover:border-amber-500">
+          
+          <img [src]="item.src" loading="lazy"
+               class="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-700 group-hover:scale-105">
+          
+          @if (item.type === 'video') {
+            <div class="absolute inset-0 flex items-center justify-center bg-black/20 group-hover:bg-transparent transition-all duration-500">
+              <i class="bi bi-play-circle-fill text-white text-6xl opacity-90 group-hover:opacity-100 group-hover:scale-110 transition-all drop-shadow-xl group-hover:text-amber-500"></i>
+            </div>
+          }
+        </div>
+      }
+      
+    </div>
+  </section>
+
+  @if (selectedItem()) {
+    <div class="fixed inset-0 z-[100] flex items-center justify-center bg-black/95 backdrop-blur-sm p-4" (click)="closeModal()">
+      <button class="absolute top-6 right-8 text-gray-400 hover:text-amber-500 z-20 text-5xl transition-colors">&times;</button>
+      
+      <div class="max-w-5xl max-h-[90vh] w-full" (click)="$event.stopPropagation()">
+        <img [src]="selectedItem().src" class="w-full h-full object-contain shadow-2xl rounded-lg">
+      </div>
+    </div>
+  }
+</div>

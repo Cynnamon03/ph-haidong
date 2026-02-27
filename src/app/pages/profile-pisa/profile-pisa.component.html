@@ -1,0 +1,98 @@
+<div class="bg-white min-h-screen">
+  
+  <section class="relative h-[80vh] flex items-end overflow-hidden bg-gray-900">
+    <img [src]="mainImage" alt="Francis Pisa - Martial Arts Maestro" 
+         class="absolute inset-0 w-full h-full object-cover opacity-80">
+    <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent"></div>
+    
+    <div class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pb-16 w-full">
+      <h2 class="text-amber-500 font-bold uppercase tracking-[0.3em] text-sm mb-4">Philippine Headmaster</h2>
+      <h1 class="text-6xl md:text-8xl font-black text-white uppercase tracking-tighter">
+        Francis <span class="text-amber-500">Pisa</span>
+      </h1>
+      <p class="text-2xl text-gray-300 font-light mt-4 italic">A Martial Arts Maestro's Journey</p>
+    </div>
+  </section>
+
+  <section class="py-24">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <div class="text-center mb-16">
+        <h3 class="text-4xl font-black text-gray-900 uppercase mb-4">Who is Francis Pisa?</h3>
+        <div class="w-20 h-1 bg-amber-500 mx-auto"></div>
+      </div>
+
+      <div class="prose prose-lg max-w-none text-gray-600 space-y-8 leading-relaxed text-justify">
+        <p>
+          Meet <span class="text-gray-900 font-bold">Francis Pisa</span>, a distinguished figure in the realm of martial arts, embodying a legacy of excellence and versatility. As the Philippine Headmaster of Haidong Gumdo and a member of Kukkiwon, Francis's martial arts journey is marked by a relentless pursuit of mastery across various disciplines. Formerly a prominent member of the Philippine Pencak Silat national team and a dedicated practitioner of Kyukushin, Francis's dedication to martial arts knows no bounds.
+        </p>
+
+        <p>
+          In addition to his achievements in traditional martial arts, Francis has ventured into the realm of mixed martial arts (MMA), competing in the renowned URCC (Universal Reality Combat Championship) in the Philippines. In a remarkable display of skill and determination, Francis emerged victorious in his bout, defeating his opponent in less than a minute of the fight—an impressive feat that underscores his prowess and adaptability in combat sports.
+        </p>
+
+        <div class="bg-gray-50 border-l-4 border-amber-500 p-8 my-12">
+          <p class="italic text-xl text-gray-800">
+            "Francis's accolades extend beyond the realm of MMA, as he is also a six-time International open medalist and a European champion in Karate."
+          </p>
+        </div>
+
+        <p>
+          His illustrious career includes competing in prestigious events such as the Kyokushinkaikan 7th World Open Karate Tournament in November 1999 where he finished 48 out of 192 participants, showcasing his skills on a global stage.
+        </p>
+
+        <p>
+          Today, as the Philippine Headmaster of Haidong Gumdo, Francis continues to inspire and empower martial artists of all levels, guiding them on their own paths of discovery and mastery. His journey is a testament to the transformative power of martial arts—a journey marked by dedication, perseverance, and an unwavering commitment to excellence.
+        </p>
+
+        <p>
+          Furthermore, Francis Pisa's influence extends globally as he shares his expertise and passion for martial arts in Germany, Ireland, the United States, and currently in Australia. Through his teachings and mentorship, Francis continues to impact martial artists around the world, fostering a community of growth, resilience, and martial arts excellence.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <section class="py-20 bg-gray-50">
+  <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+    
+    <div class="text-center mb-12">
+      <h4 class="text-2xl font-black uppercase text-gray-900">
+        Moments of <span class="text-amber-500">Mastery</span>
+      </h4>
+      <div class="w-16 h-1 bg-amber-500 mx-auto mt-4"></div>
+    </div>
+
+    <div class="relative bg-black rounded-t-2xl overflow-hidden shadow-2xl group h-[400px] md:h-[600px] flex items-center justify-center">
+      
+      <img [src]="selectedImage().url" 
+           [alt]="selectedImage().alt" 
+           class="max-w-full max-h-full object-contain transition-all duration-500">
+
+      <button (click)="prevImage()" class="absolute left-4 top-1/2 -translate-y-1/2 bg-black/20 hover:bg-black/50 text-white p-3 rounded-full transition-all opacity-0 group-hover:opacity-100 cursor-pointer">
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7" /></svg>
+      </button>
+
+      <button (click)="nextImage()" class="absolute right-4 top-1/2 -translate-y-1/2 bg-black/20 hover:bg-black/50 text-white p-3 rounded-full transition-all opacity-0 group-hover:opacity-100 cursor-pointer">
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" /></svg>
+      </button>
+
+    </div>
+
+    <div class="flex overflow-x-auto gap-2 p-2 bg-gray-900 rounded-b-2xl no-scrollbar shadow-inner">
+      @for (img of gallery; track img.url) {
+        <div 
+          (click)="setMainImage(img)"
+          class="flex-shrink-0 w-24 h-24 md:w-32 md:h-32 cursor-pointer transition-all duration-300 border-4"
+          [class.border-amber-500]="selectedImage().url === img.url"
+          [class.border-transparent]="selectedImage().url !== img.url"
+          [class.opacity-50]="selectedImage().url !== img.url"
+          [class.hover:opacity-100]="true">
+          <img [src]="img.url" [alt]="img.alt" class="w-full h-full object-cover">
+        </div>
+      }
+    </div>
+
+  </div>
+</section>
+
+</div>

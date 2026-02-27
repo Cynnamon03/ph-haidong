@@ -1,12 +1,12 @@
 import { Component, signal } from '@angular/core';
 
 @Component({
-  selector: 'app-news',
+  selector: 'app-news-card',
   standalone: true,
-  templateUrl: './news.component.html',
-  styleUrl: './news.component.css'
+  templateUrl: './news-card.component.html', 
+  styleUrl: './news-card.component.css'     
 })
-export class NewsComponent {
+export class NewsCardComponent {
   newsList = [
     {
       image: '/images/Events/image_3.jpg',

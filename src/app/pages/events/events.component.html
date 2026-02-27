@@ -1,0 +1,61 @@
+<div class="bg-white min-h-screen pb-32">
+  <section class="max-w-7xl mx-auto px-6 lg:px-12 py-24">
+    <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+      <div class="space-y-8">
+        <h1 class="text-7xl font-black text-gray-900 uppercase tracking-tighter">Events</h1>
+        <p class="text-xl text-gray-600 leading-relaxed font-medium">
+          Stay updated on the latest workshops, seminars, and tournaments happening in the Philippines. Join us for exciting opportunities to hone your skills, connect with fellow practitioners, and immerse yourself in the world of Haidong Gumdo.
+        </p>
+        <div class="w-20 h-1.5 bg-amber-500"></div>
+      </div>
+      <div class="rounded-2xl overflow-hidden shadow-2xl border-b-8 border-amber-500">
+        <img src="/images/Events/image_2.jpg" class="w-full h-auto grayscale hover:grayscale-0 transition-all duration-1000">
+      </div>
+    </div>
+  </section>
+
+  <section class="max-w-7xl mx-auto px-6 lg:px-12 py-16 border-t border-gray-100">
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-12">
+      @for (item of eventList; track item.title) {
+        <div (click)="openModal(item)" class="group cursor-pointer">
+          <div class="rounded-xl overflow-hidden shadow-lg mb-8 aspect-square border-b-4 border-transparent group-hover:border-amber-500 transition-all duration-500">
+            <img [src]="item.image" class="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-700">
+          </div>
+          
+          <div class="text-center">
+            <span class="text-amber-600 font-bold uppercase tracking-widest text-xs mb-2 block">{{ item.date }}</span>
+            <h3 class="text-sm font-bold text-gray-800 uppercase tracking-tight leading-relaxed max-w-[250px] mx-auto group-hover:text-amber-500 transition-colors">
+              {{ item.title }}
+            </h3>
+          </div>
+        </div>
+      }
+    </div>
+  </section>
+
+  @if (selectedEvent()) {
+    <div class="fixed inset-0 z-[100] flex items-center justify-center bg-black/95 backdrop-blur-sm p-4" (click)="closeModal()">
+      <div class="relative bg-white max-w-6xl w-full rounded-3xl overflow-hidden shadow-2xl flex flex-col md:flex-row h-auto md:h-[600px]" (click)="$event.stopPropagation()">
+        
+        <button (click)="prevEvent()" class="absolute left-4 top-1/2 -translate-y-1/2 text-white hover:text-amber-500 z-20 text-4xl p-4 transition-colors">&lsaquo;</button>
+        <button (click)="nextEvent()" class="absolute right-4 top-1/2 -translate-y-1/2 text-white hover:text-amber-500 z-20 text-4xl p-4 transition-colors">&rsaquo;</button>
+        <button (click)="closeModal()" class="absolute top-6 right-8 text-gray-400 hover:text-black z-20 text-4xl transition-colors">&times;</button>
+
+        <div class="md:w-1/2 bg-gray-100 flex items-center justify-center p-8">
+          <img [src]="selectedEvent().image" class="max-w-full max-h-full object-contain shadow-2xl">
+        </div>
+
+        <div class="md:w-1/2 p-12 md:p-16 flex flex-col justify-center bg-white">
+          <h2 class="text-4xl font-black text-gray-900 uppercase mb-4 tracking-tighter leading-tight">
+            {{ selectedEvent().title }}
+          </h2>
+          <p class="text-amber-600 font-bold tracking-widest uppercase text-sm mb-6">
+            {{ selectedEvent().date }} <span class="mx-2 text-gray-300">|</span> {{ selectedEvent().location }}
+          </p>
+          <div class="w-16 h-1.5 bg-amber-500 mb-8"></div>
+
+        </div>
+      </div>
+    </div>
+  }
+</div>
